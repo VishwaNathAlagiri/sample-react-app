@@ -1,0 +1,16 @@
+{
+    "title": "onHold",
+    "description": "On Hold",
+    "courseList": [
+        {
+            "name": "CBSE: Grade 3 Science",
+            "notification": "",
+            "progress": 80,
+            "date": "23 Mar 2020",
+            "teacher": [
+                "https://image.freepik.com/free-vector/vector-avatar-smiling-man-facial-expression_102172-203.jpg"
+            ],
+            "more": true
+        }
+    ]
+}

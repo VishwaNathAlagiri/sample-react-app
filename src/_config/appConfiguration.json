@@ -1,0 +1,11 @@
+{
+    "serverSettings": {
+        "baseUrl": "https://localhost:3000/"
+    },
+    "defaultConfigurations": {
+        "enableCustomTheme": false
+    },
+    "localizationAndLanguageSettings": {
+        "localizationKey": "en"
+    }
+}

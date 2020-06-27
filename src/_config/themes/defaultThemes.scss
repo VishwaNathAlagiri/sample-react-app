@@ -1,0 +1,17 @@
+$primary:#813588;
+$secondary:#c137a2;
+$secondary-blue:#6FD3B6;
+$error: #FF0000;
+$info: #0000FF;
+$success:#02782E;
+$warning: #FFDF00;
+
+:export {
+    primary: $primary;
+    secondary: $secondary;
+    secondaryBlue:$secondary-blue;
+    errors: $error;
+    infos: $info;
+    successColor: $success;
+    warningColor: $warning;
+}
