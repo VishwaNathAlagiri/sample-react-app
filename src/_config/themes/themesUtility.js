@@ -1,7 +1,7 @@
 /*eslint-disable*/
 import Settings from "../appConfiguration.json";
-import customColor from "./customThemes.scss";
-import defaultColor from "./defaultThemes.scss";
+import customColor from "./customColorPalette.scss";
+import defaultColor from "./defaultColorPalette.scss";
 
 let primaryColor = "",
   secondaryColor = "",

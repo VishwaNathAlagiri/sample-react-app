@@ -1,68 +1,62 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Project setup
 
-## Available Scripts
+```
+npm i
+```
+> This will install the packages.
 
-In the project directory, you can run:
+### Compiles and hot-reloads the resources for development
+```
+npm start
+```
+> This will start the node server with set of configuration and launch the app.
 
-### `npm start`
+# Set of commands
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+### Compiles and minifies resources for production
+```
+npm run build
+```
+### Run your unit tests
+```
+npm run test
+```
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+### Deployed application
+[Click here](https://sample-dashboard-app.herokuapp.com/).
 
-### `npm test`
+# Description of the problem
+> To create a sample Project Board of BYJUS.
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Solution
 
-### `npm run build`
+> Created a dynamic web page which displays the On Track, On Delayed and Hold courses that are user specific. 
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+# Reasoning behind Technical choice
+> **Front-End React.js** : It is an open-source JavaScript library that is used for building user interfaces for web and mobile apps. React also allows us to create reusable UI components.
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+> **Back-End Node.js**   : Node.js is a Back-End for Front-End and it uses the JavaScript as their main application to create new application.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+# Trade Off
+- Created two scss files *customColorPalette.scss* and *defaultColorPalette.scss* under *src/_config/themes* folder to manage colors in the screens, so that it can be controlled in only one end.
 
-### `npm run eject`
+- Created appConfiguration.json under *src/_config* folder to manage the app level changes like enabling custom theme.
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+- By default the colors will be rendering default color palette you can change it by making the *enableCustomTheme* flag in *appConfiguration.json* as true.
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+- Created a Node.js server for serving client REST API requests. And all API's are handled in a single file. Server folder contains two files.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+1. server.js - Node.js express server
+2. config.js - which contains API url's which are configurable.
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+### Left out things
+- Responsiveness of the application.
+- Integration testing.
 
-## Learn More
+### The following things could have been done if i would have know how this works.
+- App level configuration change and color palettes change in the production mode.
+- Adding SSL certificates.
+- Functionality implementation for search, filter and sort, And could have done better error handler mechanism for all API calls.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+### I am very proud that i am one of the contributor to this package 
+[dco-vuetify-form](https://github.com/denilkv/dco-vuetify-form).

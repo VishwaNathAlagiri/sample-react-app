@@ -1,5 +1,5 @@
 {
-  "name": "react-app",
+  "name": "sample-react-app",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -20,11 +20,9 @@
     "react-scripts": "3.4.1"
   },
   "scripts": {
-    "serve": "webpack-dev-server --open --mode development",
-    "start": "concurrently \"npm run serve\" \"cd server && npm start\"",
-    "build": "webpack --mode production",
+    "start": "concurrently \"react-scripts start\" \"cd server && npm start\"",
+    "build": "react-scripts build",
     "test": "react-scripts test --coverage --collectCoverageFrom=src/Components/*.js",
-    "test:unit": "jest --config ./src/jest.config.json",
     "eject": "react-scripts eject"
   },
   "eslintConfig": {

@@ -1,11 +1,8 @@
 {
     "serverSettings": {
-        "baseUrl": "https://localhost:3000/"
+        "baseURL": "http://localhost:8001/"
     },
     "defaultConfigurations": {
         "enableCustomTheme": false
-    },
-    "localizationAndLanguageSettings": {
-        "localizationKey": "en"
     }
 }

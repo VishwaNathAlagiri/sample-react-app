@@ -98,7 +98,7 @@ export default function NavBar(props) {
       icon: "people",
     },
     {
-      name: "Statics",
+      name: "Statistics",
       icon: "analytics",
     },
   ];
@@ -116,21 +116,20 @@ export default function NavBar(props) {
           })}
         >
           <Mui.Toolbar>
-            <Mui.IconButton
-              color="inherit"
-              aria-label="open drawer"
+            <Mui.Icon
+              style={{ color: primaryColor }}
               onClick={handleDrawerOpen}
-              edge="start"
-              className={clsx(classes.menuButton, open && classes.hide)}
             >
-              <Mui.Icon style={{ color: primaryColor }}>menu</Mui.Icon>
-            </Mui.IconButton>
+              menu
+            </Mui.Icon>
             {!open && (
-              <img
-                alt="Logo"
-                src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQSH8H4SdO7nsrpdXZiLtfG2kYnu1-P3ZcYUw&usqp=CAU"
-                className={classes.imgNavigation}
-              />
+              <Mui.Hidden smDown implementation="css">
+                <img
+                  alt="Logo"
+                  src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQSH8H4SdO7nsrpdXZiLtfG2kYnu1-P3ZcYUw&usqp=CAU"
+                  className={classes.imgNavigation}
+                />
+              </Mui.Hidden>
             )}
             <Mui.Grid
               container
@@ -142,40 +141,44 @@ export default function NavBar(props) {
                 &nbsp;{props.props.title}
               </Mui.Typography>
             </Mui.Grid>
-            <Mui.Grid
-              container
-              direction="row"
-              alignItems="flex-end"
-              justify="flex-end"
-              spacing={1}
-            >
-              <Mui.Grid item>
-                <Mui.IconButton
-                  className={classes.margin}
-                  size="small"
-                  onClick={search}
-                >
-                  <Mui.Icon style={{ color: primaryColor }}>search</Mui.Icon>
-                </Mui.IconButton>
+            <Mui.Hidden smDown implementation="css">
+              <Mui.Grid
+                container
+                direction="row"
+                alignItems="flex-end"
+                justify="flex-end"
+                spacing={1}
+              >
+                <Mui.Grid item>
+                  <Mui.IconButton
+                    className={classes.margin}
+                    size="small"
+                    onClick={search}
+                  >
+                    <Mui.Icon style={{ color: primaryColor }}>search</Mui.Icon>
+                  </Mui.IconButton>
+                </Mui.Grid>
+                <Mui.Grid item>
+                  <Mui.IconButton className={classes.margin} size="small">
+                    <Mui.Icon style={{ color: primaryColor }}>
+                      add_circle_outline
+                    </Mui.Icon>
+                  </Mui.IconButton>
+                </Mui.Grid>
+                <Mui.Grid item>
+                  <Mui.Avatar
+                    alt="Remy Sharp"
+                    src="https://image.freepik.com/free-vector/vector-avatar-smiling-man-facial-expression_102172-203.jpg"
+                    className={classes.large}
+                  />
+                </Mui.Grid>
+                <Mui.Grid item>
+                  <Mui.Typography variant="body1">
+                    {props.props.userName}
+                  </Mui.Typography>
+                </Mui.Grid>
               </Mui.Grid>
-              <Mui.Grid item>
-                <Mui.IconButton className={classes.margin} size="small">
-                  <Mui.Icon style={{ color: primaryColor }}>
-                    add_circle_outline
-                  </Mui.Icon>
-                </Mui.IconButton>
-              </Mui.Grid>
-              <Mui.Grid item>
-                <Mui.Avatar
-                  alt="Remy Sharp"
-                  src="https://image.freepik.com/free-vector/vector-avatar-smiling-man-facial-expression_102172-203.jpg"
-                  className={classes.large}
-                />
-              </Mui.Grid>
-              <Mui.Grid item>
-                <Mui.Typography variant="body1">{props.props.userName}</Mui.Typography>
-              </Mui.Grid>
-            </Mui.Grid>
+            </Mui.Hidden>
           </Mui.Toolbar>
 
           <TabContext value={mainTabvalue}>
@@ -223,10 +226,14 @@ export default function NavBar(props) {
                   <Mui.Grid>
                     <Mui.Grid container item direction="row" spacing={1}>
                       <Mui.Grid item>
-                        <Mui.Icon style={{ color: primaryColor }}>apps</Mui.Icon>
+                        <Mui.Icon style={{ color: primaryColor }}>
+                          apps
+                        </Mui.Icon>
                       </Mui.Grid>
                       <Mui.Grid item>
-                        <Mui.Typography variant="subtitle1">Fields</Mui.Typography>
+                        <Mui.Typography variant="subtitle1">
+                          Fields
+                        </Mui.Typography>
                       </Mui.Grid>
                       <Mui.Grid item>
                         <Mui.Icon style={{ color: primaryColor }}>
@@ -237,7 +244,9 @@ export default function NavBar(props) {
                         <Mui.Typography variant="body1">Sort</Mui.Typography>
                       </Mui.Grid>
                       <Mui.Grid item>
-                        <Mui.Icon style={{ color: primaryColor }}>filter_alt</Mui.Icon>
+                        <Mui.Icon style={{ color: primaryColor }}>
+                          filter_alt
+                        </Mui.Icon>
                       </Mui.Grid>
                       <Mui.Grid item>
                         <Mui.Typography variant="body1">Filter</Mui.Typography>
@@ -294,9 +303,13 @@ export default function NavBar(props) {
           />
           <Mui.IconButton onClick={handleDrawerClose}>
             {theme.direction === "ltr" ? (
-              <Mui.Icon style={{ color: "#FFFFFF" }}>keyboard_arrow_left</Mui.Icon>
+              <Mui.Icon style={{ color: "#FFFFFF" }}>
+                keyboard_arrow_left
+              </Mui.Icon>
             ) : (
-              <Mui.Icon style={{ color: "#FFFFFF" }}>keyboard_arrow_right</Mui.Icon>
+              <Mui.Icon style={{ color: "#FFFFFF" }}>
+                keyboard_arrow_right
+              </Mui.Icon>
             )}
           </Mui.IconButton>
         </div>

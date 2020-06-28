@@ -1,7 +1,9 @@
 import axios from "axios";
+import appConfig from "../_config/appConfiguration.json";
 
+const { baseURL } = appConfig.serverSettings;
 const Api = axios.create({
-  baseURL: "http://localhost:8001/",
+  baseURL,
   withCredentials: false,
   headers: {
     Accept: "application/json",

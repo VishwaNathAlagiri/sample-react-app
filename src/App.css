@@ -9,3 +9,22 @@
   font-size: calc(10px + 2vmin);
   color: white;
 }
+
+@media only screen and (max-width: 600px) {
+  .MuiGrid-spacing-xs-4 > .MuiGrid-item {
+    padding: 0 !important;
+  }
+
+  .MuiCardContent-root {
+    padding: 10px !important;
+  }
+  .MuiCardActions-root {
+    display: flex;
+    padding: 0px !important;
+    align-items: center;
+  }
+  .MuiGrid-align-items-xs-flex-end {
+    align-items: flex-end;
+    padding: 0 5px 5px 0;
+  }
+}

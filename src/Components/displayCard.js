@@ -28,8 +28,8 @@ const useStyles = makeStyles((theme) => ({
     padding: 10,
   },
   large: {
-    width: theme.spacing(7),
-    height: theme.spacing(7),
+    width: theme.spacing(6),
+    height: theme.spacing(6),
   },
   grid: {
     margin: "auto",
@@ -156,40 +156,46 @@ export default function DisplayCard(props) {
               }
             ></Mui.CardHeader>
             <Mui.CardActions>
-              <Mui.Grid
-                container
-                direction="row"
-                alignItems="flex-start"
-                justify="flex-start"
-                lg={8}
-              >
-                <AvatarGroup max={2}>
-                  {item.teacher.map((image, index) => (
-                    <Mui.Avatar
-                      alt="Remy Sharp"
-                      src={image}
-                      className={classes.large}
+              <Mui.Grid direction="row" container>
+                <Mui.Grid item xs={4} lg={6}>
+                  <Mui.Grid
+                    container
+                    direction="row"
+                    alignItems="flex-start"
+                    justify="flex-start"
+                    lg={8}
+                    xs={12}
+                  >
+                    <AvatarGroup max={2}>
+                      {item.teacher.map((image, index) => (
+                        <Mui.Avatar
+                          alt="Remy Sharp"
+                          src={image}
+                          className={classes.large}
+                        />
+                      ))}
+                    </AvatarGroup>
+                    {item.more && (
+                      <Mui.Icon style={{ color: primaryColor }}>
+                        add_circle_outline
+                      </Mui.Icon>
+                    )}
+                  </Mui.Grid>
+                </Mui.Grid>
+                <Mui.Grid item xs={8} lg={6}>
+                  <Mui.Grid
+                    container
+                    direction="row"
+                    alignItems="flex-end"
+                    justify="flex-end"
+                  >
+                    <Calendar date={item.date} />
+                    <CircularProgressWithLabel
+                      variant="static"
+                      value={item.progress}
                     />
-                  ))}
-                </AvatarGroup>
-                {item.more && (
-                  <Mui.Icon style={{ color: primaryColor }}>
-                    add_circle_outline
-                  </Mui.Icon>
-                )}
-              </Mui.Grid>
-              <Mui.Grid
-                container
-                direction="row"
-                alignItems="flex-end"
-                justify="flex-end"
-                lg={11}
-              >
-                <Calendar date={item.date} />
-                <CircularProgressWithLabel
-                  variant="static"
-                  value={item.progress}
-                />
+                  </Mui.Grid>
+                </Mui.Grid>
               </Mui.Grid>
             </Mui.CardActions>
           </Mui.Card>

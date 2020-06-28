@@ -1,62 +1,51 @@
-const https = require("https");
 const http = require("http");
-const fs = require("fs");
 const cors = require("cors");
 const express = require("express");
 const bodyParser = require("body-parser");
 const port = 8001;
 const config = require("./config");
 const app = express();
-const key = fs.readFileSync("../src/_config/certificates/server.key");
-const cert = fs.readFileSync("../src/_config/certificates/server.cert");
-const certPayload = {
-  key,
-  cert,
-};
 const protectedRoutes = express.Router();
-let server;
-const onTrack = require("./onTrack.json");
-const onDelayed = require("./onDelayed.json");
-const onHold = require("./onHold.json");
+const onTrack = require("./jsonFiles/onTrack.json");
+const onDelayed = require("./jsonFiles/onDelayed.json");
+const onHold = require("./jsonFiles/onHold.json");
+const path = require("path");
 
 app.use(cors());
 app.use(bodyParser.json());
 app.use("/api", protectedRoutes);
 app.set("Secret", config.secret);
 app.use(express.static(__dirname));
-app.use(express.static(path.join(__dirname, 'build')));
-
+app.use(express.static(path.join(__dirname, "build")));
 app.get("/userDetails/:userID", (req, res) => {
   try {
     const { userID } = req.params;
 
     if (userID === "12345") {
-      res
-        .status(200)
-        .send({
-          status: 200,
-          message: "Success",
-          data: {
-            title: "CBSE: Grade 5 Maths - Algebra",
-            userName: "Milky James",
-            userNo: "12345",
-            mainTabContent: [
-              "Task",
-              "Conversation",
-              "Files",
-              "Resources",
-              "Status",
-            ],
-            subTabContent: [
-              "List",
-              "Gantt",
-              "Board",
-              "Calendar",
-              "Pivot",
-              "Process",
-            ],
-          },
-        });
+      res.status(200).send({
+        status: 200,
+        message: "Success",
+        data: {
+          title: "CBSE: Grade 5 Maths - Algebra",
+          userName: "Milky James",
+          userNo: "12345",
+          mainTabContent: [
+            "Task",
+            "Conversation",
+            "Files",
+            "Resources",
+            "Status",
+          ],
+          subTabContent: [
+            "List",
+            "Gantt",
+            "Board",
+            "Calendar",
+            "Pivot",
+            "Process",
+          ],
+        },
+      });
     } else {
       res.status(404).send({ message: "User Not Found" });
     }
@@ -109,10 +98,6 @@ app.get("/onHold/:userID", (req, res) => {
   }
 });
 
-if (process.env.ENABLE_SSL === "true") {
-  server = https.createServer(certPayload, app);
-} else {
-  server = http.createServer(app);
-}
+let server = http.createServer(app);
 
 server.listen(port, () => console.log("Server Started at port", port));

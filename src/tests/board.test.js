@@ -1,12 +1,13 @@
 import CommonServices from "../services/CommonServices.js";
-import onTrack from "../../server/onTrack.json";
-import onHold from "../../server/onHold.json";
-import onDelayed from "../../server/onDelayed.json";
+import onTrack from "../../server/jsonFiles/onTrack.json";
+import onHold from "../../server/jsonFiles/onHold.json";
+import onDelayed from "../../server/jsonFiles/onDelayed.json";
+import Board from "../Components/board";
 import DisplayCard from "../Components/displayCard";
 import { render } from "@testing-library/react";
 import React from "react";
 
-describe("AccountOpening Page", () => {
+describe("Board Component", () => {
   beforeEach(() => {
     CommonServices.getOnTrack = jest
       .fn("12345")
@@ -22,18 +23,6 @@ describe("AccountOpening Page", () => {
   it("is mounted onHold", () => {
     const { getByText } = render(<DisplayCard props={onHold} />);
     const linkElement = getByText(/On Hold/i);
-    expect(linkElement).toBeInTheDocument();
-  });
-
-  it("is mounted onDelayed", () => {
-    const { getByText } = render(<DisplayCard props={onDelayed} />);
-    const linkElement = getByText(/Delayed/i);
-    expect(linkElement).toBeInTheDocument();
-  });
-
-  it("is mounted onTrack", () => {
-    const { getByText } = render(<DisplayCard props={onTrack} />);
-    const linkElement = getByText(/On Track/i);
     expect(linkElement).toBeInTheDocument();
   });
 });
